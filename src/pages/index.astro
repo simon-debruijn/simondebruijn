@@ -1,15 +1,34 @@
 ---
+import Repositories from "../components/Repositories.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<DefaultLayout title="Hi I'm Simon">
+  <div class="space-y-6 flex flex-col items-center z-10 relative">
+    <section id="me" class="text-center space-y-2">
+      <h1 class="text-4xl">
+        <span class="text-blue-500 font-extrabold">Hi</span> I'm Simon!
+      </h1>
+      <div class="text-xl">Full-stack developer</div>
+    </section>
+    <section id="skills" class="text-center space-y-2">
+      <h2 class="text-3xl">skills</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cupiditate
+        quos qui, accusantium fuga error unde similique dolor fugiat delectus
+        enim exercitationem quod, consectetur temporibus. Laboriosam autem unde
+        non suscipit?
+      </p>
+    </section>
+    <section id="projects" class="text-center space-y-2">
+      <h2 class="text-3xl">projects</h2>
+      <Repositories />
+    </section>
+    <section id="contact" class="text-center space-y-2">
+      <h2 class="text-3xl">contact</h2>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cupiditate quos
+      qui, accusantium fuga error unde similique dolor fugiat delectus enim exercitationem
+      quod, consectetur temporibus. Laboriosam autem unde non suscipit?
+    </section>
+  </div>
+</DefaultLayout>

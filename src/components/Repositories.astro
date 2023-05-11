@@ -1,0 +1,28 @@
+---
+import { getRepositories } from "../api/github/getRepositories";
+const repositories = await getRepositories();
+---
+
+{
+  repositories.length > 0 && (
+    <ul class="grid grid-cols-3 gap-4">
+      {repositories.map(({ name, description, html_url, languages }) => (
+        <li class="flex flex-col border border-white rounded-xl p-4 bg-white bg-opacity-5">
+          <a href={html_url} target="_blank" rel="noreferrer" class="text-xl">
+            {name}
+          </a>
+          {description && <p>{description}</p>}
+          {languages && Object.keys(languages).slice(0, 3).join(", ")}
+        </li>
+      ))}
+    </ul>
+  )
+}
+{
+  repositories.length === 0 && (
+    <div>
+      <p>No public repositories at the moment ... :(</p>
+      <p>I'm cooking up some new stuff!</p>
+    </div>
+  )
+}
